@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto Interrogativo Matrix</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            color: green;
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+        }
+        .matrix {
+            font-size: 5rem;
+            animation: move 0.5s linear infinite;
+        }
+        @keyframes move {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div id="question-mark" class="matrix"></div>
+
+    <script>
+        function generateMatrix() {
+            const questionMark = document.getElementById('question-mark');
+            let binaryString = '';
+
+            for (let i = 0; i < 100; i++) {
+                binaryString += Math.random() < 0.5 ? '0' : '1';
+            }
+
+            questionMark.textContent = binaryString;
+        }
+
+        setInterval(generateMatrix, 500);
+    </script>
+</body>
+</html>
